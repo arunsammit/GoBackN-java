@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class PipelinedClient {
     private final DatagramPacket[] sendPackets;
@@ -28,16 +29,19 @@ public class PipelinedClient {
     ScheduledExecutorService scheduledService;
     // ScheduledFuture representing the future scheduled task
     ScheduledFuture<?> scheduledFuture;
-
+    // total time the client is busy pushing packets in the channel
+    private AtomicLong sendingTime;
+    // time to wait after which all unacknowledged packets are retransmitted
     private final long delay;
     //task to be executed in each timeout event
-    public PipelinedClient(int bufferLength, InetAddress address, int port, long delay) throws SocketException {
+    public PipelinedClient(int bufferLength, InetAddress address, int port, long delay, AtomicLong sendingTIme) throws SocketException {
         this.sendPackets = new DatagramPacket[bufferLength];
         N = bufferLength;
         base = 1;
         nextSeqNum = 1;
         this.address = address;
         this.port = port;
+        this.sendingTime = sendingTIme;
         socket = new DatagramSocket();
         this.delay = delay;
         scheduledService = Executors.newSingleThreadScheduledExecutor();
@@ -62,6 +66,9 @@ public class PipelinedClient {
                         scheduledFuture = scheduledService.schedule(this::retransmitPackets, delay, TimeUnit.MILLISECONDS);
                     } else if (endSending){
                         System.out.println("Stopping receiving packets since endSending flag is true");
+                        synchronized(sendingTime){
+                            sendingTime.notify();
+                        }
                         socket.close();
                         scheduledService.shutdown();
                         break;
@@ -75,6 +82,7 @@ public class PipelinedClient {
 
     private synchronized void retransmitPackets() {
 
+        long currentTime = System.currentTimeMillis();
         System.out.println("Timeout occurred ! base is " + base + " nextSeqNum is " + nextSeqNum);
         scheduledFuture = scheduledService.schedule(this::retransmitPackets, delay, TimeUnit.MILLISECONDS);
         for (int i = base; i < nextSeqNum; i = i + 1) {
@@ -85,6 +93,7 @@ public class PipelinedClient {
                 ex.printStackTrace();
             }
         }
+        sendingTime.set(sendingTime.get() + System.currentTimeMillis() - currentTime); 
     }
 
     public void stopTransmission() {
@@ -92,14 +101,16 @@ public class PipelinedClient {
         endSending = true;
     }
     public synchronized void sendData(String data) throws IOException, InterruptedException {
-        var packet = PacketUtils.createPacket(address, port, nextSeqNum, data);
         while (nextSeqNum >= base + N) {
             System.out.println("buffer full, waiting for ack of sent packet : " + base);
             this.wait();
         }
+        long currentTime = System.currentTimeMillis();
+        var packet = PacketUtils.createPacket(address, port, nextSeqNum, data);
         sendPackets[nextSeqNum % N] = packet;
         System.out.println("sending packet: " + nextSeqNum);
         socket.send(packet);
+        sendingTime.set(sendingTime.get() + System.currentTimeMillis() - currentTime); 
         if(base == nextSeqNum){
             scheduledFuture = scheduledService.schedule(this::retransmitPackets, delay, TimeUnit.MILLISECONDS);
         }

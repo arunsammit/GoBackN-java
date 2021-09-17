@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.InetAddress;
+import java.util.concurrent.atomic.AtomicLong;
 public class Client {
 
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -19,17 +20,27 @@ public class Client {
         int port = Integer.parseInt(args[1]);
         int bufferLength = Integer.parseInt(args[3]);
         long delay = Integer.parseInt(args[4]);
-        PipelinedClient pipelinedClient = new PipelinedClient(bufferLength,address,port,delay);
+        AtomicLong sendingTime = new AtomicLong(0);
+        PipelinedClient pipelinedClient = new PipelinedClient( bufferLength, address, port, delay, sendingTime );
         BufferedReader in = new BufferedReader(new FileReader(args[2]));
         String value;
         int cnt = 1;
+        long startTime = System.currentTimeMillis();
         while ((value = in.readLine())!=null) {
             System.out.println("Trying to push message number: " + cnt +" in the pipeline:\n\t" + value);
             pipelinedClient.sendData(value);
             cnt++;
         }
-        pipelinedClient.stopTransmission();
         in.close();
+        pipelinedClient.stopTransmission();
+        synchronized(sendingTime){
+            sendingTime.wait();
+        }
+        long transmissionTime = System.currentTimeMillis() - startTime;;
+        double channelUtilization = (double)sendingTime.get() / transmissionTime;
+        System.out.println("sending time is " + sendingTime.get());
+        System.out.println("transmission time is " + transmissionTime);
+        System.out.println("Channel utilization is "+ channelUtilization);
         System.out.println("Done");
     }
 }

@@ -1,159 +1,232 @@
+Out of order packet 2 !
+Out of order packet 3 !
+Sending ack for 0
+Out of order packet 4 !
+Sending ack for 0
+Erroneous packet received
+Sending ack for 0
+Out of order packet 2 !
+Out of order packet 4 !
+Sending ack for 0
 Received message number 1
+Out of order packet 3 !
+Sending ack for 1
+Out of order packet 4 !
+Sending ack for 1
+Out of order packet 6 !
+Out of order packet 3 !
+Sending ack for 1
+Out of order packet 4 !
+Out of order packet 6 !
 Sending ack for 1
 Received message number 2
+Sending ack for 2
 Received message number 3
 Sending ack for 3
 Received message number 4
 Sending ack for 4
-Erroneous packet received
-Sending ack for 4
 Out of order packet 6 !
 Sending ack for 4
 Out of order packet 7 !
-Sending ack for 4
-Out of order packet 8 !
+Erroneous packet received
 Sending ack for 4
 Out of order packet 9 !
-Sending ack for 4
 Received message number 5
+Out of order packet 8 !
+Out of order packet 7 !
+Out of order packet 8 !
+Sending ack for 5
+Out of order packet 9 !
 Sending ack for 5
 Received message number 6
 Sending ack for 6
 Received message number 7
 Sending ack for 7
-Received message number 8
-Sending ack for 8
-Out of order packet 11 !
-Sending ack for 8
+Out of order packet 9 !
+Out of order packet 10 !
 Out of order packet 12 !
-Sending ack for 8
-Out of order packet 13 !
-Sending ack for 8
+Received message number 8
 Received message number 9
 Sending ack for 9
 Received message number 10
 Sending ack for 10
 Received message number 11
-Sending ack for 11
 Received message number 12
 Sending ack for 12
 Received message number 13
 Sending ack for 13
-Erroneous packet received
-Sending ack for 13
-Out of order packet 15 !
-Sending ack for 13
-Out of order packet 17 !
-Sending ack for 13
-Erroneous packet received
-Erroneous packet received
-Sending ack for 13
-Out of order packet 16 !
-Sending ack for 13
-Out of order packet 17 !
-Out of order packet 18 !
-Sending ack for 13
 Received message number 14
-Sending ack for 14
 Received message number 15
-Sending ack for 15
 Received message number 16
 Sending ack for 16
 Received message number 17
 Sending ack for 17
+Out of order packet 21 !
 Received message number 18
 Sending ack for 18
-Received message number 19
-Sending ack for 19
-Erroneous packet received
-Sending ack for 19
-Out of order packet 21 !
-Sending ack for 19
+Out of order packet 23 !
+Out of order packet 20 !
 Out of order packet 22 !
-Sending ack for 19
+Sending ack for 18
+Out of order packet 23 !
+Sending ack for 18
+Out of order packet 20 !
+Out of order packet 22 !
+Out of order packet 23 !
+Out of order packet 21 !
+Sending ack for 18
+Out of order packet 22 !
+Out of order packet 23 !
+Out of order packet 20 !
+Out of order packet 22 !
 Erroneous packet received
-Sending ack for 19
-Out of order packet 24 !
-Sending ack for 19
+Sending ack for 18
+Out of order packet 20 !
+Out of order packet 22 !
+Out of order packet 23 !
+Sending ack for 18
+Received message number 19
 Received message number 20
 Sending ack for 20
 Received message number 21
-Sending ack for 21
 Received message number 22
-Sending ack for 22
-Erroneous packet received
 Sending ack for 22
 Out of order packet 24 !
 Sending ack for 22
-Erroneous packet received
-Sending ack for 22
-Out of order packet 26 !
-Sending ack for 22
 Out of order packet 27 !
-Sending ack for 22
 Received message number 23
 Sending ack for 23
 Out of order packet 25 !
-Sending ack for 23
 Out of order packet 26 !
-Sending ack for 23
-Out of order packet 27 !
+Out of order packet 28 !
 Sending ack for 23
 Erroneous packet received
+Out of order packet 28 !
 Sending ack for 23
 Received message number 24
-Sending ack for 24
-Erroneous packet received
-Sending ack for 24
-Out of order packet 27 !
-Sending ack for 24
+Out of order packet 26 !
 Out of order packet 28 !
 Sending ack for 24
+Out of order packet 24 !
+Sending ack for 24
+Out of order packet 26 !
+Out of order packet 27 !
+Out of order packet 28 !
 Out of order packet 29 !
+Out of order packet 26 !
+Out of order packet 28 !
 Sending ack for 24
 Received message number 25
+Erroneous packet received
+Sending ack for 25
+Erroneous packet received
+Out of order packet 29 !
+Sending ack for 25
+Out of order packet 30 !
 Sending ack for 25
 Received message number 26
-Received message number 27
-Sending ack for 27
-Received message number 28
-Sending ack for 28
-Erroneous packet received
-Sending ack for 28
+Out of order packet 28 !
+Out of order packet 29 !
+Sending ack for 26
 Out of order packet 30 !
-Sending ack for 28
+Received message number 27
+Out of order packet 30 !
+Sending ack for 27
+Out of order packet 31 !
+Out of order packet 30 !
+Out of order packet 31 !
+Sending ack for 27
+Out of order packet 32 !
+Sending ack for 27
+Out of order packet 29 !
+Out of order packet 30 !
+Sending ack for 27
+Out of order packet 31 !
+Sending ack for 27
+Out of order packet 32 !
+Erroneous packet received
+Out of order packet 29 !
+Received message number 28
 Out of order packet 31 !
 Sending ack for 28
 Out of order packet 32 !
-Sending ack for 28
 Out of order packet 33 !
-Sending ack for 28
 Received message number 29
 Sending ack for 29
 Received message number 30
+Out of order packet 32 !
+Sending ack for 30
+Out of order packet 34 !
+Sending ack for 30
+Out of order packet 35 !
 Sending ack for 30
 Received message number 31
 Sending ack for 31
+Out of order packet 33 !
+Out of order packet 34 !
+Sending ack for 31
+Out of order packet 35 !
+Sending ack for 31
+Erroneous packet received
 Received message number 32
+Out of order packet 34 !
+Out of order packet 34 !
+Sending ack for 32
+Out of order packet 35 !
+Out of order packet 34 !
+Sending ack for 32
+Out of order packet 36 !
+Out of order packet 34 !
+Out of order packet 36 !
+Sending ack for 32
+Out of order packet 37 !
+Out of order packet 34 !
+Out of order packet 36 !
+Erroneous packet received
+Sending ack for 32
+Out of order packet 34 !
+Out of order packet 35 !
+Out of order packet 37 !
 Sending ack for 32
 Received message number 33
-Sending ack for 33
 Received message number 34
+Out of order packet 36 !
+Sending ack for 34
+Out of order packet 36 !
+Erroneous packet received
+Sending ack for 34
+Out of order packet 37 !
+Out of order packet 38 !
+Sending ack for 34
+Out of order packet 36 !
+Sending ack for 34
+Out of order packet 38 !
+Out of order packet 39 !
+Out of order packet 37 !
+Sending ack for 34
+Out of order packet 38 !
+Sending ack for 34
+Out of order packet 36 !
 Sending ack for 34
 Received message number 35
 Sending ack for 35
 Received message number 36
 Sending ack for 36
-Erroneous packet received
+Out of order packet 38 !
 Sending ack for 36
 Out of order packet 39 !
 Sending ack for 36
+Out of order packet 39 !
 Out of order packet 40 !
 Received message number 37
 Sending ack for 37
+Out of order packet 40 !
+Out of order packet 40 !
+Sending ack for 37
 Received message number 38
-Sending ack for 38
 Received message number 39
 Sending ack for 39
 Received message number 40
+Out of order packet 40 !
+Out of order packet 40 !
 Sending ack for 40
